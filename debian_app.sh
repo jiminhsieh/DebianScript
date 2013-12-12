@@ -27,10 +27,21 @@ echo "xinput set-prop "Logitech USB Trackball" \
 echo "xinput set-prop "Logitech USB Trackball" \
 		"Evdev Wheel Emulation Axes" 6 7 4 5" >> ~/.profile
 
-# for Chrome Browser only x64
-wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i google-chrome-stable_current_amd64.deb 
-rm google-chrome-stable_current_amd64.deb
+# Chrome Browser, it would depend on your CPU type to download suited package
+CpuType=$(uname -m)
+
+function chrome() {
+	echo "This is $1!!!"
+	wget -c https://dl.google.com/linux/direct/$2
+	dpkg -i $2
+	rm $2
+}
+
+if [ $CpuType == "x86_64" ]; then
+	chrome $CpuType google-chrome-stable_current_amd64.deb
+else
+	chrome $CpuType google-chrome-stable_current_i386.deb
+fi
 
 # Some of Software
 apt-get -y install quicksynergy gemanx-gtk2 mintinstall audacious vlc \
