@@ -45,5 +45,5 @@ fi
 
 # Some of Software
 apt-get -y install quicksynergy gemanx-gtk2 mintinstall audacious vlc \
-			emesene unetbootin proftpd \
+			emesene unetbootin proftpd gnome-disk-utility\
 			unrar-free xrdp filezilla  remmina\
