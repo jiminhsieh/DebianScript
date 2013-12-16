@@ -1,20 +1,20 @@
 # update
-apt-get update
+sudo apt-get update
 
 # for Chinese Display
-apt-get -y install ttf-arphic-bkai00mp ttf-arphic-bsmi00lp \
+sudo apt-get -y install ttf-arphic-bkai00mp ttf-arphic-bsmi00lp \
 			ttf-arphic-gbsn00lp ttf-arphic-gbsn00lp 
 
 # for Chinese Input Method
-apt-get -y install scim scim-chewing 
+sudo apt-get -y install scim scim-chewing 
 
 # for Virtual Box USB subsystem
-apt-get install -y virtualbox virtualbox-dkms
+sudo apt-get install -y virtualbox virtualbox-dkms
 user=$(echo "$USER")
-usermod -a -G vboxusers $user
+sudo usermod -a -G vboxusers $user
 
 # for Logitech Trackball, it's for left-handed people
-apt-get install -y xinput
+sudo apt-get install -y xinput
 
 echo "" >> ~/.profile 
 echo "# xinput for Logitech USB Trackball" >> ~/.profile
@@ -31,9 +31,9 @@ echo "xinput set-prop "Logitech USB Trackball" \
 CpuType=$(uname -m)
 
 function chrome() {
-	echo "This is $1!!!"
+	echo "This is $1 System!!!"
 	wget -c https://dl.google.com/linux/direct/$2
-	dpkg -i $2
+	sudo dpkg -i $2
 	rm $2
 }
 
@@ -44,6 +44,6 @@ else
 fi
 
 # Some of Software
-apt-get -y install quicksynergy gemanx-gtk2 mintinstall audacious vlc \
+sudo apt-get -y install quicksynergy gemanx-gtk2 mintinstall audacious vlc \
 			emesene unetbootin proftpd gnome-disk-utility\
 			unrar-free xrdp filezilla  remmina\

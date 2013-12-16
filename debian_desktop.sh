@@ -8,24 +8,26 @@ echo " Which Desktop you want to install?"
 PS3='Please enter your choice[1-3]: '
 
 select option in "cinnamon" "mate" "quit"; do
-	echo "" >> /etc/apt/sources.list
+	sudo echo "" | sudo tee -a /etc/apt/sources.list
 	case $option in 
 		"cinnamon" ) 
-			echo "# cinnamon desktop" >> /etc/apt/sources.list
-        		echo 'deb http://packages.linuxmint.com/ debian main import backport upstream romeo' \
-                		>> /etc/apt/sources.list
-        		apt-get update
-        		apt-get install linuxmint-keyring
-        		apt-get install cinnamon cinnamon-session cinnamon-settings
+			sudo echo "# cinnamon desktop" | sudo tee -a /etc/apt/sources.list
+        		sudo echo 'deb http://packages.linuxmint.com/ debian main import \
+        		        backport upstream romeo' | sudo tee -a /etc/apt/sources.list
+        		sudo apt-get update
+        		sudo apt-get install linuxmint-keyring
+        		sudo apt-get install cinnamon cinnamon-session cinnamon-settings
 			break;;
 		
 		"mate" )	
-			echo "# mate desktop" >> /etc/apt/sources.list
-			echo "deb http://repo.mate-desktop.org/debian wheezy main" >> /etc/apt/sources.list
-        		apt-get update
-        		apt-get install -y mate-archive-keyring
-        		apt-get update
-        		apt-get install -y mate-core mate-desktop-environment mate-desktop-environment-extra
+			echo "# mate desktop" | sudo tee -a /etc/apt/sources.list
+			echo "deb http://repo.mate-desktop.org/debian wheezy main" \
+			        | sudo tee -a /etc/apt/sources.list
+        		sudo apt-get update
+        		sudo apt-get install -y mate-archive-keyring
+        		sudo apt-get update
+        		sudo apt-get install -y mate-core mate-desktop-environment \
+        		        mate-desktop-environment-extra
 			break;;
 		"quit" )
 			break;;
