@@ -23,6 +23,10 @@ sudo apt-get install -y meld git subversion
 
 # Python 3
 sudo apt-get install -y python3
+# PyCscope
+git clone https://github.com/portante/pycscope.git
+sudo python pycscope/setup.py install 
+rm -r pycscope
 
 # vgod's vimrc
 wget -O - https://raw.github.com/vgod/vimrc/master/auto-install.sh | sh
