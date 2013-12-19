@@ -17,15 +17,15 @@ sudo usermod -a -G vboxusers $user
 sudo apt-get install -y xinput
 
 echo "" >> ~/.profile 
-echo "# xinput for Logitech USB Trackball" >> ~/.profile
-echo "xinput set-prop "Logitech USB Trackball" \
-		"Evdev Middle Button Emulation" 1" >> ~/.profile
-echo "xinput set-prop "Logitech USB Trackball" \
-		"Evdev Wheel Emulation" 1" >> ~/.profile
-echo "xinput set-prop "Logitech USB Trackball" \
-		"Evdev Wheel Emulation Button" 9" >> ~/.profile
-echo "xinput set-prop "Logitech USB Trackball" \
-		"Evdev Wheel Emulation Axes" 6 7 4 5" >> ~/.profile
+echo '# xinput for Logitech USB Trackball' >> ~/.profile
+echo 'xinput set-prop "Logitech USB Trackball" \
+		"Evdev Middle Button Emulation" 1' >> ~/.profile
+echo 'xinput set-prop "Logitech USB Trackball" \
+		"Evdev Wheel Emulation" 1' >> ~/.profile
+echo 'xinput set-prop "Logitech USB Trackball" \
+		"Evdev Wheel Emulation Button" 9' >> ~/.profile
+echo 'xinput set-prop "Logitech USB Trackball" \
+		"Evdev Wheel Emulation Axes" 6 7 4 5' >> ~/.profile
 
 # Chrome Browser, it would depend on your CPU type to download suited package
 CpuType=$(uname -m)
