@@ -6,14 +6,21 @@ sudo apt-get install -y gcc g++
 sudo apt-get install -y terminator
 sudo apt-get install -y vim cscope ctags
 
+# vgod's vimrc
+wget -O - https://raw.github.com/vgod/vimrc/master/auto-install.sh | sh
+
+# taglist
+wget http://www.vim.org/scripts/download_script.php?src_id=19574
+unzip taglist.zip ~/.vim
+
 # for Java
 sudo apt-get -y install eclipse eclipse-egit
 sudo echo "" | sudo tee -a /etc/apt/sources.list
 sudo echo "# Oracle Java" | sudo tee -a /etc/apt/sources.list
 sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" \
                 | sudo tee -a /etc/apt/sources.list
-sudo echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" \
-	        | sudo tee -a /etc/apt/sources.list
+sudo echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise \
+                main" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 sudo apt-get update
 sudo apt-get install -y oracle-java6-installer oracle-java7-installer
@@ -27,6 +34,3 @@ sudo apt-get install -y python3
 git clone https://github.com/portante/pycscope.git
 sudo python pycscope/setup.py install 
 rm -r pycscope
-
-# vgod's vimrc
-wget -O - https://raw.github.com/vgod/vimrc/master/auto-install.sh | sh
