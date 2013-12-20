@@ -28,8 +28,8 @@ sudo apt-get install -y oracle-java6-installer oracle-java7-installer
 # developping tool 
 sudo apt-get install -y meld git subversion
 
-# Python 3
-sudo apt-get install -y python3
+# Python 
+sudo apt-get install -y python3 ipython
 # PyCscope
 git clone https://github.com/portante/pycscope.git
 sudo python pycscope/setup.py install 
