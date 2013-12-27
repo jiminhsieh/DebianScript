@@ -33,4 +33,4 @@ sudo apt-get install -y python3 ipython
 # PyCscope
 git clone https://github.com/portante/pycscope.git
 sudo python pycscope/setup.py install 
-rm -r pycscope
+sudo rm -r pycscope
