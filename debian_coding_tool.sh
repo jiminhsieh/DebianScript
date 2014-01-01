@@ -6,8 +6,8 @@ sudo apt-get install -y gcc g++
 sudo apt-get install -y terminator
 sudo apt-get install -y vim cscope ctags
 
-# vgod's vimrc
-wget -O - https://raw.github.com/vgod/vimrc/master/auto-install.sh | sh
+# fork from vgod's vimrc
+wget -O https://raw.github.com/jiminhsieh/vimrc/master/auto-install.sh | sh
 
 # taglist
 wget http://www.vim.org/scripts/download_script.php?src_id=19574
@@ -30,7 +30,11 @@ sudo apt-get install -y meld git subversion
 
 # Python 
 sudo apt-get install -y python3 ipython
+# auto fit Python coding style
+sudo easy_install -ZU autopep8
 # PyCscope
 git clone https://github.com/portante/pycscope.git
+wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python
+rm ez_setup.py
 sudo python pycscope/setup.py install 
 sudo rm -r pycscope
