@@ -46,4 +46,4 @@ fi
 # Some of Software
 sudo apt-get -y install quicksynergy gemanx-gtk2 mintinstall audacious vlc \
 			emesene unetbootin proftpd gnome-disk-utility\
-			unrar-free xrdp filezilla  remmina screen\
+			unrar-free xrdp filezilla  remmina screen preload\
