@@ -10,8 +10,8 @@ sudo apt-get install -y vim cscope ctags
 wget -O https://raw.github.com/jiminhsieh/vimrc/master/auto-install.sh | sh
 
 # taglist
-wget http://www.vim.org/scripts/download_script.php?src_id=19574
-unzip taglist.zip ~/.vim
+wget http://netcologne.dl.sourceforge.net/project/vim-taglist/vim-taglist/4.6/taglist_46.zip
+unzip taglist_46.zip -d ~/.vim
 
 # for Java
 sudo apt-get -y install eclipse eclipse-egit
@@ -27,6 +27,9 @@ sudo apt-get install -y oracle-java6-installer oracle-java7-installer
 
 # developping tool 
 sudo apt-get install -y meld git subversion
+
+# change git editor
+git config --global core.editor "vim"
 
 # Python 
 sudo apt-get install -y python3 ipython
