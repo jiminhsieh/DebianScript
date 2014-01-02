@@ -13,9 +13,17 @@ sudo sed -i '$ifstrim -v /' /etc/rc.local
 sudo sed -i '$i\\' /etc/rc.local
 
 # TRIM periodically
-# add "fstrim -v /" to /etc/cron.x/trim
-# echo "fstrim -v /" > /etc/cron.$1/trim
-# sudo chmod +x /etc/cron.daily/trim
+while true; do
+        read -p "Is your computer always on?[y/n]" yn
+        case $yn in 
+                [Yy]* ) sudo echo 'fstrim -v /' | sudo tee -a /etc/cron.daily/trim;
+                        sudo chmod +x /etc/cron.daily/trim; 
+                        break;;
+                [Nn]* ) echo 'Do nothing!';
+                        break;;
+                * ) echo 'Please answer Y/y or N/n.';;
+        esac
+done
 
 # Change Disk I/O Scheduler
 function replace() {
