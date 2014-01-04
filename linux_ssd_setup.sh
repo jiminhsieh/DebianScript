@@ -38,7 +38,7 @@ elif grep '"quiet splash"' /etc/default/grub; then
 	string="quiet splash"
 	replace $string
 else
-	echo -e '\e[0;31m"Nothing Replace!"\e[0;31m'
+	echo -e '### "Nothing Replace!" ###'
 fi
 
 # put temp to RAM
@@ -50,6 +50,6 @@ sudo echo 'tmpfs   /var/tmp        tmpfs   defaults,noatime,mode=1777      0    
 sudo echo 'tmpfs   /var/log        tmpfs   defaults,noatime,mode=0755      0       0' | sudo tee -a /etc/fstab
 
 # turn off swap space 
-sudo sed -i '$i# turn off swap space for SSD'
+sudo sed -i '$i# turn off swap space for SSD' /etc/rc.local
 sudo sed -i '$iswapoff -a' /etc/rc.local
 sudo sed -i '$i\\' /etc/rc.local
