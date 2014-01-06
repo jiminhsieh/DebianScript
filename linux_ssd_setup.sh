@@ -47,7 +47,6 @@ sudo echo '# tmp in ram' | sudo tee -a /etc/fstab
 sudo echo 'tmpfs   /tmp            tmpfs   defaults,noatime,mode=1777      0       0' | sudo tee -a /etc/fstab
 sudo echo 'tmpfs   /var/spool      tmpfs   defaults,noatime,mode=1777      0       0' | sudo tee -a /etc/fstab
 sudo echo 'tmpfs   /var/tmp        tmpfs   defaults,noatime,mode=1777      0       0' | sudo tee -a /etc/fstab
-sudo echo 'tmpfs   /var/log        tmpfs   defaults,noatime,mode=0755      0       0' | sudo tee -a /etc/fstab
 
 # turn off swap space 
 sudo sed -i '$i# turn off swap space for SSD' /etc/rc.local
