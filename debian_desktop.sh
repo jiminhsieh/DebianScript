@@ -1,3 +1,4 @@
+#!/bin/bash
 ##################################
 #  Debian 7 Alternative Desktop  #
 #  1. Cinnamon                   #
@@ -24,7 +25,7 @@ select option in "cinnamon" "mate" "quit"; do
 			echo "deb http://repo.mate-desktop.org/debian wheezy main" \
 			        | sudo tee -a /etc/apt/sources.list
         		sudo apt-get update
-        		sudo apt-get install -y mate-archive-keyring
+        		apt-get --yes --quiet --allow-unauthenticated install mate-archive-keyring
         		sudo apt-get update
         		sudo apt-get install -y mate-core mate-desktop-environment \
         		        mate-desktop-environment-extra
