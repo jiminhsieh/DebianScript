@@ -58,10 +58,12 @@ source ~/.profile
 brew install gcc sbt scala gradle maven vim git fish
 
 # Docker
-curl -fsSL get.docker.com -o get-docker.sh
-sh get-docker.sh
-rm get-docker.sh
-sudo -s usermod -aG docker $(whoami)
+if [ 'is_container' = false ]; then
+    curl -fsSL get.docker.com -o get-docker.sh
+    sh get-docker.sh
+    rm get-docker.sh
+    sudo -s usermod -aG docker $(whoami)
+fi
 
 # VirtualBox
 if [ 'is_container' = false ]; then
