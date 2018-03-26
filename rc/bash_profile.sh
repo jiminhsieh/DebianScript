@@ -4,27 +4,33 @@ cat >> ~/.profile << EOF
 
 source ~/.bashrc
 
-# Git branch in prompt.
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# Variables
+__ls_options="-GFh"
+__grep_options="--color=auto"
+
+# Function
+__current_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
-export PS1="\u@\h \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
-# Git
-alias gitgraph='git log --graph --all --decorate'
+__pump_git_branch() {
+  if [ ! -z $(__current_git_branch) ]; then
+    echo \($(__current_git_branch)\)
+  fi
+}
 
-export GREP_OPTIONS='--color=auto'
+# Shortcut
+alias ls="ls ${__ls_options}"
+alias grep="grep ${__grep_options}"
+alias gitgraph="git log --graph --all --decorate"
+gitsync() {
+  git pull upstream $(__current_git_branch) && git push origin $(__current_git_branch)
+}
 
 # Terminal Color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Alias
-export LS_OPTIONS='--color=auto -GFh'
-alias ls="ls $LS_OPTIONS"
-
-
-# Log
-HISTFILESIZE=10000000
+export PS1="\u@\h \[\033[32m\]\W\[\033[33m\] \$(__pump_git_branch)\[\033[00m\]$ "
 
 EOF
