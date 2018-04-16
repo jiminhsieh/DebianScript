@@ -41,7 +41,7 @@ if [ 'is_container' = true ]; then
     	sudo update-locale LANG=en_US.UTF-8
 fi
 
-sudo -s apt install -y vim net-tools screen wget build-essential curl git python-setuptools iftop htop iotop
+sudo -s apt install -y vim net-tools screen wget build-essential curl git python-setuptools iftop htop iotop bmon
 
 wget http://cdn.azul.com/zulu/bin/${ZULU_JDK}
 sudo dpkg -i ${ZULU_JDK}
@@ -76,6 +76,8 @@ if [ 'is_container' = false ]; then
 	wget https://releases.hashicorp.com/vagrant/2.0.2/vagrant_2.0.2_x86_64.deb
 	sudo dpkg -i vagrant_2.0.2_x86_64.deb
 fi
+
+git config --global core.editor "vim"
 
 ./rc/bash_profile.sh
 ./rc/screenrc.sh
